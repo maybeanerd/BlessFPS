@@ -1,0 +1,71 @@
+How to fix your FPS Drops 
+-------------------------------
+
+1. (optional) Notepad++ installieren
+
+2.  Falls GPU Speicherund CPU Kerne unbekannt: 
+a. Taskmanager öffnen (rechtsklick Taskleiste) -> Leistung
+b. CPU anklicken und unten rechts die "Kerne" notieren
+b. GPU anklicken und unten rechts den "dedizierter GPU Speicher" notieren
+
+3. die engine configuration file öffnen unter:
+[dein Steam Pfad]\steamapps\common\Bless Online\Engine\Config\BaseEngine.ini
+
+Tipp:  Suchfunktion statt scrollen & Suchen+Ersetzen Funktion verwenden beschleunigt das ganze
+
+Ändere wie folgt:
+
+bStaticDecalsEnabled=False
+bDynamicDecalsEnabled=False
+bDisablePhysXHardwareSupport=False
+MaxSmoothedFrameRate=120
+bShouldLogStatsData=False (DIESE ZEILE EXISTIERT NICHT und muss selbst hinzugefügt werden in Zeile 241!)
+PhysXGpuHeapSize=64
+PhysXMeshCacheSize=16
+MipFadeInSpeed0=0
+MipFadeOutSpeed0=0
+MipFadeInSpeed1=0
+MipFadeOutSpeed1=0
+MinTextureResidentMipCount=7
+PoolSize= X (X entspricht deinem GPU Speicher in MB, also bei 4GB ist der Wert 4096, 6GB=6144, 8GB=8192))
+MemoryMargin= 512 (außer du hast weniger als 2GB GPU Speicher, dann nochmal nachfragen)
+ThreadedShaderCompileThreshold=Z (Z entspricht der Anzahl deiner CPU Kerne (z.B. 2 bei Dualcore, 4 Quadcore, usw)
+bAllowMotionBlurSkinning=False
+
+4. Öffne nun folgende Dabei:
+
+[dein Steam Pfad]\steamapps\common\Bless Online\Engine\Config\BaseSystemSettings.ini
+
+Verwende die Suchen und Ersetzen-Funktion (STRG+H) und suche und ersetze wie folgt:
+
+Distortion=true ---ersetze alles gefundene mit: 
+Distortion=FALSE
+
+DynamicShadows=true ---ersetze alles gefundene mit: 
+DynamicShadows=FALSE
+
+LightEnvironmentShadows=true ---ersetzen mit: 
+LightEnvironmentShadows=FALSE
+
+FogVolumes=true ---ersetzen mit: 
+FogVolumes=FALSE
+
+StaticDecals=true ---ersetze alles gefundene mit: 
+StaticDecals=FALSE
+
+5. alles speichern, und am besten das Ganze machen während das Spiel nicht läuft :wink:(edited)
+Sonstige Tipps
+-----------------
+BASEENGINE.INI
+
+Fix FOV & Ultrawide Fix (für beides, unabhängig voneinander)
+AspectRatioAxisConstraint=AspectRatio_MaintainXFOV --- ersetzen mit AspectRatioAxisConstraint=AspectRatio_MaintainYFOV
+
+BASEINPUT.INI
+
+Turn off Mouse Smoothing
+bEnableMouseSmoothing=FALSE (default is true)
+
+Fix for mouse vertical movement not being the same as horizontal
+LookRightScale=300
+LookUpScale=-300 (default ist -250)
