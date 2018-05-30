@@ -28,8 +28,8 @@ public class main {
     }
 
     private static void getAllData() {
-        Engine=new ArrayList<>();
-        BaseSystem=new ArrayList<>();
+        Engine = new ArrayList<>();
+        BaseSystem = new ArrayList<>();
         try {
             //getting file
             String line;
@@ -50,18 +50,6 @@ public class main {
             }
             fr.close();
             br.close();
-
-            //for testing
-            ArrayList<String> test = new ArrayList<>();
-            f1 = new File("S:\\SteamLibrary\\steamapps\\common\\Bless Online\\Engine\\Config\\BaseEngine.ini");
-            fr = new FileReader(f1);
-            br = new BufferedReader(fr);
-            while ((line = br.readLine()) != null) {
-                test.add(line);
-            }
-            fr.close();
-            br.close();
-            System.out.println(test.get(17));
 
         } catch (Exception ex) {
             ex.printStackTrace();
