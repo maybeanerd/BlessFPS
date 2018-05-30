@@ -1,5 +1,6 @@
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.TextField;
@@ -11,6 +12,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -96,6 +98,10 @@ public class main {
         }
     }
 
+    public String getSteamPath() throws IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+        return WinRegistry.readString(WinRegistry.HKEY_CURRENT_USER, "Software\\Valve\\Steam", "SteamPath");
+    }
+
     public static boolean isInteger(String s) {
         try {
             Integer.parseInt(s);
@@ -127,8 +133,9 @@ public class main {
         frame.setLayout(new FlowLayout());
         JLabel intro = new JLabel("<html>Hi there and thanks for using BlessFPS!<br/>This program will allow you to change settings inside of the configuration files of Bless Online with an easy interface.<br/>At first, you need to choose the path your game is in.<br/>Your path should look something like this:<br/>[your steam path]\\steamapps\\common\\Bless Online</html>");
         frame.add(intro);
+        //TODO get Steam path automatically and check if Bless is already found
         frame.add(panel, "Center");
-        frame.setSize(panel.getPreferredSize());
+        frame.setSize(new Dimension(800, 500));
         frame.setVisible(true);
 
         while (true) { //i know this is bad code, but i want to get it working before opimtimizing and i havent used java in a long time
@@ -144,6 +151,7 @@ public class main {
                 }
             }
         }
+        //TODO add that one sees whats currently set
         getAllData();
 
         //put the settings here again
@@ -181,7 +189,7 @@ public class main {
         mainPanel.add(checkBoxPanel4);
         mainPanel.add(checkBoxPanel5);
 
-        frame.add(mainPanel);
+        frame.add(mainPanel);//TOTO add automatic detection via JSensor
         mainPanel.add(new JLabel("Hardware allocation, this should always be adjusted because it does not make quality worse:"));
 
         JPanel p = new JPanel();
