@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="BlessFPS:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ba1bf38e-ce7b-4a6f-b909-0c6e7f6e0c98" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -60,6 +65,24 @@
             <path>
               <item name="BlessFPS" type="b2602c69:ProjectViewProjectNode" />
               <item name="BlessFPS" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlessFPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlessFPS" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlessFPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlessFPS" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="BlessFPS_jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlessFPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlessFPS" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -81,32 +104,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="blessfps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlessFPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlessFPS" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlessFPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlessFPS" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlessFPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlessFPS" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="teabots" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlessFPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlessFPS" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="teabots" type="462c0819:PsiDirectoryNode" />
               <item name="blessfps" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -133,7 +130,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.main (1)">
+  <component name="RunManager" selected="JAR Application.BlessFPS.jar">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -175,6 +172,9 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="BlessFPS.jar" type="JarApplication" factoryName="JAR Application" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/BlessFPS_jar/BlessFPS.jar" />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -200,9 +200,11 @@
     <list>
       <item itemvalue="Application.main" />
       <item itemvalue="Application.main (1)" />
+      <item itemvalue="JAR Application.BlessFPS.jar" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JAR Application.BlessFPS.jar" />
         <item itemvalue="Application.main (1)" />
         <item itemvalue="Application.main" />
       </list>
@@ -233,7 +235,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.3214844" side_tool="true" visible="true" weight="0.3289777" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6785156" visible="true" weight="0.3289777" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6785156" weight="0.3289777" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -362,9 +364,69 @@
           </splitter-proportions>
         </settings>
       </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>BlessFPS</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>BlessFPS-1.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
