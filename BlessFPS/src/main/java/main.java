@@ -4,6 +4,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,6 +16,10 @@ import javax.swing.JLabel;
  * @author Basti
  */
 public class main {
+
+    public static void infoBox(String infoMessage, String titleBar) {
+        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
 
     public static void main(String s[]) {
         JFrame frame = new JFrame("BlessFPS");
@@ -31,16 +36,21 @@ public class main {
         frame.add(panel, "Center");
         frame.setSize(panel.getPreferredSize());
         frame.setVisible(true);
-        while (true) {
+        while (true) { //i know this is bad code, but i want to get it working before opimtimizing and i havent used java in a long time
+            System.out.println(panel.path);
             if (panel.path != null) {
-                System.out.println("we get here");
-                frame.getContentPane().removeAll();
-                frame.add(new JLabel("test"));
-                frame.revalidate();
-                frame.repaint();
-                break;
+                if (panel.path.endsWith("\\steamapps\\common\\Bless Online")) {
+                    break;
+                } else {
+                    infoBox("The path you chose was not a compatible path. Please try again.\nYour selected path was: " + panel.path, "Path finding error");
+                    panel.path = null;
+                }
             }
         }
+        frame.getContentPane().removeAll();
+        frame.add(new JLabel("test"));
+        frame.revalidate();
+        frame.repaint();
 
     }
 }
