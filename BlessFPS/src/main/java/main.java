@@ -28,6 +28,8 @@ public class main {
     }
 
     private static void getAllData() {
+        Engine=new ArrayList<>();
+        BaseSystem=new ArrayList<>();
         try {
             //getting file
             String line;
@@ -48,6 +50,18 @@ public class main {
             }
             fr.close();
             br.close();
+
+            //for testing
+            ArrayList<String> test = new ArrayList<>();
+            f1 = new File("S:\\SteamLibrary\\steamapps\\common\\Bless Online\\Engine\\Config\\BaseEngine.ini");
+            fr = new FileReader(f1);
+            br = new BufferedReader(fr);
+            while ((line = br.readLine()) != null) {
+                test.add(line);
+            }
+            fr.close();
+            br.close();
+            System.out.println(test.get(17));
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -120,12 +134,62 @@ public class main {
         }
         frame.getContentPane().removeAll();
         getAllData();
-        frame.add(new JLabel("TODO optimization"));
+        int poolSize, cores;
+        Boolean mipmapsDisabled, decalsDisabled, distortionDisabled, dynamicShadowsDisabled, fogDisabled;
+        frame.add(new JLabel("TODO options"));
         frame.revalidate();
         frame.repaint();
 
-        //idea to add zeile Engine.add(241, "bShouldLogStatsData=False")
+        //now, for safety
+        return;
+
+        //changes:
+        //engine:
+        if (decalsDisabled) {
+            Engine.set(133, "bStaticDecalsEnabled=FALSE");
+            Engine.set(134, "bDynamicDecalsEnabled=False");
+        }
+
+        Engine.set(192, "bDisablePhysXHardwareSupport=False");
+        Engine.set(220, "MaxSmoothedFrameRate=120");
+        Engine.set(556, "MaxSmoothedFrameRate=120");
+        Engine.set(211, "PhysXGpuHeapSize=64");
+        Engine.set(212, "PhysXMeshCacheSize=16");
+        if (mipmapsDisabled) {
+            Engine.set(204, "MipFadeInSpeed0=0");
+            Engine.set(205, "MipFadeOutSpeed0=0");
+            Engine.set(206, "MipFadeInSpeed1=0");
+            Engine.set(207, "MipFadeOutSpeed1=0");
+        }
+        Engine.set(469, "MinTextureResidentMipCount=7");
+        Engine.set(470, "PoolSize=" + poolSize);
+        Engine.set(470, "MemoryMargin=512");
+        Engine.set(585, "ThreadedShaderCompileThreshold=" + cores);
+
+        Engine.add(240, "bShouldLogStatsData=False");
+
+        //baseSystem:
+        if (distortionDisabled) {
+            BaseSystem.set(19, "Distortion=FALSE");
+            BaseSystem.set(19, "Distortion=FALSE");
+        }
+        if (dynamicShadowsDisabled) {
+            BaseSystem.set(7, "DynamicShadows=FALSE");
+            BaseSystem.set(442, "DynamicShadows=FALSE");
+            BaseSystem.set(459, "DynamicShadows=FALSE");
+            BaseSystem.set(583, "DynamicShadows=FALSE");
+            BaseSystem.set(599, "DynamicShadows=FALSE");
+            BaseSystem.set(8, "LightEnvironmentShadows=FALSE");
+        }
+        if (fogDisabled) {
+            BaseSystem.set(27, "FogVolumes=FALSE");
+        }
+        if (decalsDisabled) {
+            BaseSystem.set(2, "StaticDecals=FALSE");
+            BaseSystem.set(312, "StaticDecals=FALSE");
+        }
+
         //when done:
-        //putAllData();
+        putAllData();
     }
 }
