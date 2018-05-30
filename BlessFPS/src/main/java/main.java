@@ -31,38 +31,66 @@ public class main {
         try {
             //getting file
             String line;
-            ArrayList<String> lines = new ArrayList<>();
-            File f1 = new File("S:\\SteamLibrary\\steamapps\\common\\Bless Online\\Engine\\Config\\BaseEngine.ini");
+            File f1 = new File(blessPath + "\\Engine\\Config\\BaseEngine.ini");
             FileReader fr = new FileReader(f1);
             BufferedReader br = new BufferedReader(fr);
             while ((line = br.readLine()) != null) {
-                lines.add(line);
+                Engine.add(line);
             }
             fr.close();
             br.close();
 
-            System.out.println(lines.get(3));
-
-            //putting file
-            FileWriter fw = new FileWriter(f1);
-            BufferedWriter out = new BufferedWriter(fw);
-            for (String s : lines) {
-                out.write(s);
+            f1 = new File(blessPath + "\\Engine\\Config\\BaseSystemSettings.ini");
+            fr = new FileReader(f1);
+            br = new BufferedReader(fr);
+            while ((line = br.readLine()) != null) {
+                BaseSystem.add(line);
             }
-            out.flush();
-            out.close();
+            fr.close();
+            br.close();
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
+    private static void putAllData() {
+        try {
+            //putting file
+            File f1 = new File(blessPath + "\\Engine\\Config\\BaseEngine.ini");
+
+            FileWriter fw = new FileWriter(f1);
+            BufferedWriter out = new BufferedWriter(fw);
+            for (String s : Engine) {
+                out.write(s);
+                out.newLine();
+
+            }
+            out.flush();
+            out.close();
+
+            f1 = new File(blessPath + "\\Engine\\Config\\BaseSystemSettings.ini");
+
+            fw = new FileWriter(f1);
+            out = new BufferedWriter(fw);
+            for (String s : BaseSystem) {
+                out.write(s);
+                out.newLine();
+            }
+            out.flush();
+            out.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private static ArrayList<String> Engine;
+    private static ArrayList<String> BaseSystem;
+
     private static String blessPath;
 
     public static void main(String s[]) {
-        //testing
-        getAllData();
-        //endof testing
-
         JFrame frame = new JFrame("BlessFPS");
         DemoJFileChooser panel = new DemoJFileChooser();
         frame.addWindowListener(
@@ -91,9 +119,13 @@ public class main {
             }
         }
         frame.getContentPane().removeAll();
+        getAllData();
         frame.add(new JLabel("TODO optimization"));
         frame.revalidate();
         frame.repaint();
 
+        //idea to add zeile Engine.add(241, "bShouldLogStatsData=False")
+        //when done:
+        //putAllData();
     }
 }
