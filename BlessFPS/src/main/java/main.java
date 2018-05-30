@@ -1,5 +1,9 @@
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.TextField;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
@@ -8,9 +12,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -87,13 +96,27 @@ public class main {
         }
     }
 
+    public static boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return false;
+        } catch (NullPointerException e) {
+            return false;
+        }
+        // only got here if we didn't return false
+        return true;
+    }
+
     private static ArrayList<String> Engine;
     private static ArrayList<String> BaseSystem;
 
     private static String blessPath;
+    private static int poolSize, cores;
+    private static Boolean mipmapsDisabled, decalsDisabled, distortionDisabled, dynamicShadowsDisabled, fogDisabled;
 
     public static void main(String s[]) {
-        JFrame frame = new JFrame("BlessFPS");
+        JFrame frame = new JFrame("BlessFPS 1.0 - made by T0TProduction#0001 ");
         DemoJFileChooser panel = new DemoJFileChooser();
         frame.addWindowListener(
                 new WindowAdapter() {
@@ -107,6 +130,7 @@ public class main {
         frame.add(panel, "Center");
         frame.setSize(panel.getPreferredSize());
         frame.setVisible(true);
+
         while (true) { //i know this is bad code, but i want to get it working before opimtimizing and i havent used java in a long time
             blessPath = panel.path;
             //for some reason only after printing this the if statement will work, wtf java
@@ -120,23 +144,96 @@ public class main {
                 }
             }
         }
-        frame.getContentPane().removeAll();
         getAllData();
-        int poolSize, cores;
-        Boolean mipmapsDisabled, decalsDisabled, distortionDisabled, dynamicShadowsDisabled, fogDisabled;
-        frame.add(new JLabel("TODO options"));
+
+        //put the settings here again
+        frame.getContentPane().removeAll();
+
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new GridLayout(0, 1));
+
+        JPanel checkBoxPanel1 = new JPanel();
+        //checkBoxPanel.setLayout(new GridLayout());
+
+        mainPanel.add(new JLabel("<html>You should deactivate everything if you have performance issues,<br />though these settings lower the visual quality.</html>"));
+        JCheckBox exchangingCard1 = new JCheckBox("disable mipmap fadeins/fadeouts");
+        checkBoxPanel1.add(exchangingCard1);
+
+        JPanel checkBoxPanel2 = new JPanel();
+        JCheckBox exchangingCard2 = new JCheckBox("disable decals");
+        checkBoxPanel2.add(exchangingCard2);
+
+        JPanel checkBoxPanel3 = new JPanel();
+        JCheckBox exchangingCard3 = new JCheckBox("disable distortions");
+        checkBoxPanel3.add(exchangingCard3);
+
+        JPanel checkBoxPanel4 = new JPanel();
+        JCheckBox exchangingCard4 = new JCheckBox("disable dynamic shadows");
+        checkBoxPanel4.add(exchangingCard4);
+
+        JPanel checkBoxPanel5 = new JPanel();
+        JCheckBox exchangingCard5 = new JCheckBox("disable fog");
+        checkBoxPanel5.add(exchangingCard5);
+
+        mainPanel.add(checkBoxPanel1);
+        mainPanel.add(checkBoxPanel2);
+        mainPanel.add(checkBoxPanel3);
+        mainPanel.add(checkBoxPanel4);
+        mainPanel.add(checkBoxPanel5);
+
+        frame.add(mainPanel);
+        mainPanel.add(new JLabel("Hardware allocation, this should always be adjusted because it does not make quality worse:"));
+
+        JPanel p = new JPanel();
+        TextField intFiled = new TextField("4096");
+        p.add(new JLabel("<html>GPU memory pool size. This should be equal to the VRAM your GPU has, in MB<br />Examples are: 4GB=4096, 6GB=6144, 8GB=8192</html>"));
+        p.add(intFiled);
+
+        mainPanel.add(p);
+
+        JPanel p2 = new JPanel();
+        TextField intFiled2 = new TextField("4");
+        p2.add(new JLabel("Threaded shader compile threshhold. This should be equal to the number of physical cores your CPU has."));
+        p2.add(intFiled2);
+
+        mainPanel.add(p2);
+        JToggleButton doneBut = new JToggleButton("Apply patch");
+        frame.add(doneBut);
+
         frame.revalidate();
         frame.repaint();
 
-        //now, for safety
-        return;
+        while (true) { //i know this is bad but i had no time to see how events would work here
+            System.out.println(doneBut);
+            if (doneBut.getModel().isPressed()) {
+                if (isInteger(intFiled.getText()) && isInteger(intFiled2.getText())) {
+                    mipmapsDisabled = exchangingCard1.isSelected();
+                    decalsDisabled = exchangingCard2.isSelected();
+                    distortionDisabled = exchangingCard3.isSelected();
+                    dynamicShadowsDisabled = exchangingCard4.isSelected();
+                    fogDisabled = exchangingCard5.isSelected();
+                    poolSize = Integer.parseInt(intFiled.getText());
+                    cores = Integer.parseInt(intFiled2.getText());
+                    break;
+                } else {
+                    infoBox("The values for memory pool and/or cores are not valid", "input error");
+                }
+            }
+        }
+
+        frame.getContentPane().removeAll();
+        JLabel process = new JLabel("The settings are being applied...");
+        frame.add(process);
+        frame.revalidate();
+        frame.repaint();
 
         //changes:
         //engine:
-        if (decalsDisabled) {
-            Engine.set(133, "bStaticDecalsEnabled=FALSE");
-            Engine.set(134, "bDynamicDecalsEnabled=False");
-        }
+        process.setText("Engine.ini is being changed...");
+        frame.revalidate();
+        frame.repaint();
+        Engine.set(133, "bStaticDecalsEnabled=" + !decalsDisabled);
+        Engine.set(134, "bDynamicDecalsEnabled=" + !decalsDisabled);
 
         Engine.set(192, "bDisablePhysXHardwareSupport=False");
         Engine.set(220, "MaxSmoothedFrameRate=120");
@@ -148,36 +245,45 @@ public class main {
             Engine.set(205, "MipFadeOutSpeed0=0");
             Engine.set(206, "MipFadeInSpeed1=0");
             Engine.set(207, "MipFadeOutSpeed1=0");
+        } else {
+
         }
         Engine.set(469, "MinTextureResidentMipCount=7");
         Engine.set(470, "PoolSize=" + poolSize);
-        Engine.set(470, "MemoryMargin=512");
+        Engine.set(471, "MemoryMargin=" + 512);
         Engine.set(585, "ThreadedShaderCompileThreshold=" + cores);
 
-        Engine.add(240, "bShouldLogStatsData=False");
+        if (!Engine.contains("bShouldLogStatsData=False")) {
+            Engine.add(240, "bShouldLogStatsData=False");
+        }
 
         //baseSystem:
-        if (distortionDisabled) {
-            BaseSystem.set(19, "Distortion=FALSE");
-            BaseSystem.set(19, "Distortion=FALSE");
-        }
-        if (dynamicShadowsDisabled) {
-            BaseSystem.set(7, "DynamicShadows=FALSE");
-            BaseSystem.set(442, "DynamicShadows=FALSE");
-            BaseSystem.set(459, "DynamicShadows=FALSE");
-            BaseSystem.set(583, "DynamicShadows=FALSE");
-            BaseSystem.set(599, "DynamicShadows=FALSE");
-            BaseSystem.set(8, "LightEnvironmentShadows=FALSE");
-        }
-        if (fogDisabled) {
-            BaseSystem.set(27, "FogVolumes=FALSE");
-        }
-        if (decalsDisabled) {
-            BaseSystem.set(2, "StaticDecals=FALSE");
-            BaseSystem.set(312, "StaticDecals=FALSE");
-        }
+        process.setText("BaseSystem.ini is being changed...");
+        frame.revalidate();
+        frame.repaint();
+        BaseSystem.set(19, "Distortion=" + !distortionDisabled);
+        BaseSystem.set(19, "Distortion=" + !distortionDisabled);
+
+        BaseSystem.set(7, "DynamicShadows=" + !dynamicShadowsDisabled);
+        BaseSystem.set(442, "DynamicShadows=" + !dynamicShadowsDisabled);
+        BaseSystem.set(459, "DynamicShadows=" + !dynamicShadowsDisabled);
+        BaseSystem.set(583, "DynamicShadows=" + !dynamicShadowsDisabled);
+        BaseSystem.set(599, "DynamicShadows=" + !dynamicShadowsDisabled);
+        BaseSystem.set(8, "LightEnvironmentShadows=" + !dynamicShadowsDisabled);
+
+        BaseSystem.set(27, "FogVolumes=" + !fogDisabled);
+
+        BaseSystem.set(2, "StaticDecals=" + !decalsDisabled);
+        BaseSystem.set(312, "StaticDecals=" + !decalsDisabled);
 
         //when done:
+        process.setText("saving files...");
+        frame.revalidate();
+        frame.repaint();
         putAllData();
+        process.setText("<html>Successfully completed performance patch.<br />You can now close the application and start Bless Online!</html>");
+        frame.revalidate();
+        frame.repaint();
+
     }
 }
