@@ -1,9 +1,9 @@
 # BlessFPS
-This is a script which changes the settings from Bless Online to use your hardware more efficient
+This is a tool which changes the settings from Bless Online to use your hardware more efficiently. Other fixes such as camera etc. will be added in future.
 
 You need the Java runtime environment to run the program: https://java.com/en/download/win10.jsp
 
-Download link:
+# Download links:
 
 File from this repository: https://github.com/T0TProduction/BlessFPS/blob/master/BlessFPS/out/artifacts/BlessFPS_jar/BlessFPS.jar
 
