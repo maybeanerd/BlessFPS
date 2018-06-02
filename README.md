@@ -10,3 +10,12 @@ If you liked this, why not leave an upvote here: https://www.reddit.com/r/Bless/
 File from this repository: https://github.com/T0TProduction/BlessFPS/blob/master/BlessFPS/out/artifacts/BlessFPS_jar/BlessFPS.jar
 
 MEGA link (should be up to date, if not please let me know): https://mega.nz/#F!FCRHULQa!SDNvj2j1sZyh2CSUQT48LQ
+
+#Instructions:
+
+1. download the BlessFPS.jar from one of the links above
+2. run the program from anywhere
+3. choose the path to the Bless Online files
+4. choose what you want the program to change
+5. apply changes
+6. play Bless with better FPS
