@@ -11,7 +11,7 @@ File from this repository: https://github.com/T0TProduction/BlessFPS/blob/master
 
 MEGA link (should be up to date, if not please let me know): https://mega.nz/#F!FCRHULQa!SDNvj2j1sZyh2CSUQT48LQ
 
-#Instructions:
+# Instructions:
 
 1. download the BlessFPS.jar from one of the links above
 2. run the program from anywhere
