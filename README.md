@@ -7,4 +7,4 @@ You need the Java runtime environment to run the program: https://java.com/en/do
 
 File from this repository: https://github.com/T0TProduction/BlessFPS/blob/master/BlessFPS/out/artifacts/BlessFPS_jar/BlessFPS.jar
 
-MEGA link (should be up to date, if not please let me know): https://mega.nz/#!gfQHjJwb!j3OwkM5gu0xuiYhVsxKFGFah1TD3u5cLHN4KwwWiqU8
+MEGA link (should be up to date, if not please let me know): https://mega.nz/#F!FCRHULQa!SDNvj2j1sZyh2CSUQT48LQ

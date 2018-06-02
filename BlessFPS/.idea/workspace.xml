@@ -8,9 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ba1bf38e-ce7b-4a6f-b909-0c6e7f6e0c98" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/BlessFPS_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/BlessFPS_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/BlessFPS_1_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BlessFPS_jar/BlessFPS.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BlessFPS_jar/BlessFPS.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BlessFPS_jar/BlessFPS.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/teabots/blessfps/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teabots/blessfps/main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,8 +26,8 @@
       <file leaf-file-name="main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/teabots/blessfps/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="646">
+              <caret line="109" column="53" lean-forward="true" selection-start-line="109" selection-start-column="53" selection-end-line="109" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -40,9 +40,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/teabots/blessfps/main.java" />
         <option value="$PROJECT_DIR$/src/main/java/teabots/blessfps/DemoJFileChooser.java" />
         <option value="$PROJECT_DIR$/src/main/java/teabots/blessfps/WinRegistry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/teabots/blessfps/main.java" />
       </list>
     </option>
   </component>
@@ -231,6 +231,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -264,6 +265,20 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/teabots/blessfps/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1428">
+          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/teabots/blessfps/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/teabots/blessfps/main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -355,8 +370,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/teabots/blessfps/main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="646">
+          <caret line="109" column="53" lean-forward="true" selection-start-line="109" selection-start-column="53" selection-end-line="109" selection-end-column="53" />
         </state>
       </provider>
     </entry>

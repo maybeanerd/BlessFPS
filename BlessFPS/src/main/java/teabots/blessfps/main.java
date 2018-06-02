@@ -107,7 +107,7 @@ public class main {
     private static Boolean mipmapsDisabled, decalsDisabled, distortionDisabled, dynamicShadowsDisabled, fogDisabled;
 
     public static void main(String s[]) {
-        JFrame frame = new JFrame("BlessFPS 1.0 - made by T0TProduction#0001 ");
+        JFrame frame = new JFrame("BlessFPS 1.0.1 - made by T0TProduction#0001 ");
         DemoJFileChooser panel = new DemoJFileChooser();
         frame.addWindowListener(
                 new WindowAdapter() {
@@ -128,7 +128,7 @@ public class main {
             //for some reason only after printing this the if statement will work, wtf java
             System.out.println(blessPath);
             if (blessPath != null) {
-                if (blessPath.endsWith("\\steamapps\\common\\Bless Online")) {
+                if (blessPath.toLowerCase().endsWith(("\\steamapps\\common\\Bless Online").toLowerCase())) {
                     break;
                 } else {
                     infoBox("The path you chose was not a compatible path. Please try again.\nYour selected path was: " + panel.path, "Path finding error");
