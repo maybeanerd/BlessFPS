@@ -3,6 +3,8 @@ This is a tool which changes the settings from Bless Online to use your hardware
 
 You need the Java runtime environment to run the program: https://java.com/en/download/win10.jsp
 
+If you liked this, why not leave an upvote here: https://www.reddit.com/r/Bless/comments/8nqle7/tool_for_applying_ini_changes_to_boost/
+
 # Download links:
 
 File from this repository: https://github.com/T0TProduction/BlessFPS/blob/master/BlessFPS/out/artifacts/BlessFPS_jar/BlessFPS.jar
